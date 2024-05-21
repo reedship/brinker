@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+{% block title %}Goal{% endblock %}
+
+{% block body %}
+  <div class="container">
+    <h1>Goal</h1>
+    <table>
+      <tr>
+	<th>Title</th>
+	<th>Description</th>
+      </tr>
+	<tr class="table table-striped table-bordered">
+          <td>{{ goal.title }}</td>
+          <td>{{ goal.description }}</td>
+	</tr>
+    </table>
+    <a href="{{ path('user_goals') }}" class="btn btn-secondary">Back to goals</a>
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ goal.id) }}">
+      <a href="{{path('delete_goal', {'id': goal.id}) }}" class="btn btn-danger">Delete Goal</a>
+  </div>
+{% endblock %}

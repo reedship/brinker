@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Goal{% endblock %}
+
+{% block body %}
+  <div class="container">
+    <div class="form-row">
+    <h1>Goal</h1>
+    </div>
+  {{ form_errors(goalForm) }}
+  {{ form_start(goalForm) }}
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      {{ form_label(goalForm.title, 'Title', {'label_attr': {'class': 'col-form-label'}}) }}
+      {{ form_widget(goalForm.title, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    </div>
+    <div class="form-row">
+    <div class="form-group col-md-6">
+      {{ form_label(goalForm.description, 'Description', {'label_attr': {'class': 'col-form-label'}}) }}
+      {{ form_widget(goalForm.description, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    </div>
+</div>
+    <div class="form-group col-md-6">
+      <button type="submit" class="btn btn-primary">Create Goal</button>
+      <a href="{{ path('user_goals') }}" class="btn btn-secondary">Back to goals</a>
+      </div>
+  {{ form_end(goalForm) }}
+</div>
+{% endblock %}
